@@ -9,7 +9,7 @@ type Props = {
 
 const SingleBook = (props: Props) => {
   return (
-    <div className="h-32 w-full text-white bg-gradient-to-r from-orange-700 to-orange-800 rounded-lg items-center shadow-lg shadow-orange-950/40 grid grid-cols-6 text-center place-content-between">
+    <div className="h-32 w-full text-white bg-gradient-to-r bg-orange-800 from-orange-700 to-orange-800 rounded-lg items-center shadow-lg shadow-orange-950/40 grid grid-cols-6 text-center place-content-between">
       <img
         src={props.book.simple_thumb}
         className="rounded-l-lg h-32 col-span-1"

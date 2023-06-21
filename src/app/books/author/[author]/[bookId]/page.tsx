@@ -5,12 +5,43 @@ import { DetailedBook } from "@/types/DetailedBook";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";
 import React from "react";
 import AuthorBooks from "@/components/AuthorBooks/AuthorBooks";
+import getBooks from "@/app/services/getBooks";
+import { Book } from "@/types/Book";
+import getAllBooks from "@/app/services/getAllBooks";
+import getAuthors from "@/app/services/getAuthors";
+import { Author } from "@/types/Author";
+import getAllAuthorBooks from "@/app/services/getAllAuthorBooks";
 
 type Props = {
   params: {
     bookId: string;
   };
 };
+
+export async function generateMetadata(props: Props) {
+  const book: DetailedBook = await getBook(props.params.bookId);
+  return {
+    title: book.title,
+  };
+}
+
+export async function generateStaticParams() {
+  const authors: Author[] = await getAuthors();
+
+  const authorBooksPromises = authors.map(async (author) => {
+    const authorSlug = author.slug;
+    const books: Book[] = await getAllAuthorBooks(authorSlug);
+
+    return books.map((bookId) => ({
+      author: authorSlug,
+      bookId: bookId.slug,
+    }));
+  });
+
+  const authorBooks = await Promise.all(authorBooksPromises);
+
+  return authorBooks.flat();
+}
 
 const page = async (props: Props) => {
   const book: DetailedBook = await getBook(props.params.bookId);
@@ -24,8 +55,8 @@ const page = async (props: Props) => {
           ></img>
         </div>
         <div className="col-span-2 flex flex-col gap-8">
-          <h2 className="text-2xl font-medium">{book.title}</h2>
-          <Link href={book.authors[0].slug}>
+          <h2 className="text-3xl font-bold">{book.title}</h2>
+          <Link href={"/books/author/" + book.authors[0].slug}>
             Author: {book.authors[0].name}
           </Link>
           <div className="flex gap-4 flex-wrap w-96">

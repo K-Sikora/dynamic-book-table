@@ -26,9 +26,9 @@ const AuthorBooks = async (props: Props) => {
           >
             <img
               src={book.simple_thumb}
-              className="w-36"
+              className="w-36 shadow-lg"
             ></img>
-            <h4 className="font-medium">{book.title}</h4>
+            <h4 className="font-medium mt-2">{book.title}</h4>
           </Link>
         ))}
       </div>
