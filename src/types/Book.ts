@@ -9,8 +9,3 @@ export type Book = {
   simple_thumb: string;
   slug: string;
 };
-
-export type PaginatedBooks = {
-  paginatedData: Book[];
-  totalPages: number;
-};

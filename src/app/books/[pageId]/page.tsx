@@ -1,5 +1,5 @@
 import React from "react";
-import { Book, PaginatedBooks } from "@/types/Book";
+import { PaginatedBooks } from "@/types/PaginatedBooks";
 import getBooks from "@/app/services/getBooks";
 import Table from "@/components/Table/Table";
 type Props = {
@@ -14,6 +14,13 @@ export async function generateStaticParams() {
   const arr = Array.from({ length });
   return arr.map((_, index) => ({ pageId: (index + 1).toString() }));
 }
+
+export async function generateMetadata(props: Props) {
+  return {
+    title: `All books - Page ${props.params.pageId}`,
+  };
+}
+
 const page = async (props: Props) => {
   const paginatedBooks: PaginatedBooks | undefined = await getBooks(
     parseInt(props.params.pageId),
@@ -26,6 +33,8 @@ const page = async (props: Props) => {
         <Table
           currentId={props.params.pageId}
           paginatedBooks={paginatedBooks}
+          authorButton={true}
+          pagination={true}
         />
       )}
     </>

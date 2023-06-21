@@ -6,7 +6,7 @@ type Props = {};
 
 const Navbar = (props: Props) => {
   return (
-    <header className="h-20 bg-orange-500">
+    <header className="h-20 bg-orange-700 z-10 absolute top-0 left-0 w-full">
       <div className="max-w-6xl h-full items-center mx-auto flex justify-between">
         <Link
           className="flex items-center gap-2"
