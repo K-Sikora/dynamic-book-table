@@ -2,6 +2,10 @@ export default async function getBooks(
   pageNumber: number,
   itemsPerPage: number
 ) {
+  if (isNaN(pageNumber)) {
+    throw new Error("Please provide a valid book page.");
+  }
+
   try {
     const res = await fetch("https://wolnelektury.pl/api/books/", {
       next: { revalidate: 3600 },

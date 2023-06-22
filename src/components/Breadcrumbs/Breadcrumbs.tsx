@@ -32,7 +32,7 @@ const Breadcrumbs = (props: Props) => {
     });
 
   return (
-    <nav className="absolute top-3 flex items-center gap-1 text-xs font-normal text-white">
+    <nav className="max-w-6xl w-full mx-auto flex flex-wrap items-center gap-1 text-sm font-normal text-white">
       <Link
         href="/"
         className="flex items-center gap-1"

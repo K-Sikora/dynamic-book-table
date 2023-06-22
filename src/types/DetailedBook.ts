@@ -32,4 +32,5 @@ export type DetailedBook = {
   cover_thumb: string;
   cover: string;
   simple_thumb: string;
+  detail?: string;
 };
