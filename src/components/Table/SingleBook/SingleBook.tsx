@@ -13,6 +13,7 @@ const SingleBook = (props: Props) => {
   return (
     <div className="h-auto py-8 md:py-0 md:h-32 w-full text-white bg-orange-600/80 backdrop-blur-md text-base md:text-sm lg:text-base rounded-lg items-center shadow-lg shadow-orange-950/40 flex flex-col gap-3 md:gap-0 md:grid md:grid-cols-9 text-center place-content-between">
       <img
+        loading="lazy"
         alt="book cover"
         className="rounded-l-lg h-40 md:h-32 col-span-1"
         src={props.book.simple_thumb}

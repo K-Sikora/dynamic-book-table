@@ -56,6 +56,7 @@ const page = async (props: Props) => {
       <div className="flex flex-col items-center md:items-stretch md:grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:h-[400px] text-white">
         <div className="col-span-1 flex justify-center md:block">
           <img
+            loading="lazy"
             alt="book cover"
             src={book.simple_cover}
             className="w-48 md:w-auto md:h-[400px] rounded-lg shadow-lg"

@@ -27,6 +27,7 @@ const AuthorBooks = async (props: Props) => {
           >
             <Link href={book.slug}>
               <img
+                loading="lazy"
                 alt="book cover"
                 src={book.simple_thumb}
                 className="w-36 shadow-lg rounded-lg"
