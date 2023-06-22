@@ -1,6 +1,6 @@
 import React from "react";
 import { PaginatedBooks } from "@/types/PaginatedBooks";
-import getBooks from "@/app/services/getBooks";
+import getPaginatedBooks from "@/app/services/getPaginatedBooks";
 import Table from "@/components/Table/Table";
 type Props = {
   params: {
@@ -8,7 +8,7 @@ type Props = {
   };
 };
 export async function generateStaticParams() {
-  const pages = await getBooks(1, 25);
+  const pages = await getPaginatedBooks(1, 25);
   const length = pages?.totalPages || 0;
 
   const arr = Array.from({ length });
@@ -22,11 +22,18 @@ export async function generateMetadata(props: Props) {
 }
 
 const page = async (props: Props) => {
-  const paginatedBooks: PaginatedBooks | undefined = await getBooks(
+  const paginatedBooks: PaginatedBooks | undefined = await getPaginatedBooks(
     parseInt(props.params.pageId),
     25
   );
-
+  if (paginatedBooks) {
+    if (
+      parseInt(props.params.pageId) > paginatedBooks?.totalPages ||
+      parseInt(props.params.pageId) < 0
+    ) {
+      throw new Error("No books found on this page.");
+    }
+  }
   return (
     <>
       {paginatedBooks && (

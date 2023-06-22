@@ -2,9 +2,8 @@
 import { FaChevronRight } from "react-icons/fa";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-type Props = {};
 
-const Breadcrumbs = (props: Props) => {
+const Breadcrumbs = () => {
   const pathname = usePathname();
 
   let breadcrumbs = "";
@@ -32,7 +31,7 @@ const Breadcrumbs = (props: Props) => {
     });
 
   return (
-    <nav className="max-w-6xl w-full mx-auto flex flex-wrap items-center gap-1 text-sm font-normal text-white">
+    <nav className="max-w-6xl w-full mx-auto flex flex-wrap items-center gap-1 text-sm font-medium text-white">
       <Link
         href="/"
         className="flex items-center gap-1"

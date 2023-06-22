@@ -1,9 +1,9 @@
-import DetailedBookLayout from "@/app/Layouts/DetailedBookLayout";
+import DetailedBookLayout from "@/components/Layouts/DetailedBookLayout";
 import Link from "next/link";
 import { Author } from "@/types/Author";
 import { Book } from "@/types/Book";
 import getAuthors from "@/app/services/getAuthors";
-import getAllAuthorBooks from "@/app/services/getAllAuthorBooks";
+import getAuthorBooks from "@/app/services/getAuthorBooks";
 import getBook from "@/app/services/getBook";
 import { DetailedBook } from "@/types/DetailedBook";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";
@@ -30,7 +30,7 @@ export async function generateStaticParams() {
 
   const authorBooksPromises = authors.map(async (author) => {
     const authorSlug = author.slug;
-    const books: Book[] = await getAllAuthorBooks(authorSlug);
+    const books: Book[] = await getAuthorBooks(authorSlug);
 
     return books.map((bookId) => ({
       author: authorSlug,
@@ -57,7 +57,7 @@ const page = async (props: Props) => {
           <img
             alt="book cover"
             src={book.simple_cover}
-            className="w-48 md:w-auto md:h-[400px] rounded-lg shadow-xl"
+            className="w-48 md:w-auto md:h-[400px] rounded-lg shadow-lg"
           ></img>
         </div>
         <div className="lg:col-span-2 items-center md:items-start text-center md:text-left flex flex-col gap-4 md:gap-8">
@@ -85,7 +85,7 @@ const page = async (props: Props) => {
               <Link
                 href={book.pdf}
                 target="_blank"
-                className="bg-orange-900 border-2 border-transparent hover:border-gray-100/70 duration-150 flex items-center gap-1 justify-center text-white px-8 py-2 rounded-lg text-sm font-normal"
+                className="bg-orange-500 border-2 border-transparent hover:border-gray-100/70 duration-150 flex items-center gap-1 justify-center text-white px-8 py-2 rounded-lg text-sm font-normal"
               >
                 <span>Open PDF</span>
                 <BsFillFileEarmarkPdfFill

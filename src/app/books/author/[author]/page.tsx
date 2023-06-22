@@ -1,5 +1,5 @@
 import React from "react";
-import getAuthorBooks from "@/app/services/getAuthorBooks";
+import getAuthorBooks from "@/app/services/getPaginatedAuthorBooks";
 import Table from "@/components/Table/Table";
 import { PaginatedBooks } from "@/types/PaginatedBooks";
 type Props = {
@@ -23,7 +23,7 @@ const page = async (props: Props) => {
     3000
   );
   return (
-    <div>
+    <>
       {booksByAuthor && (
         <Table
           paginatedBooks={booksByAuthor}
@@ -32,7 +32,7 @@ const page = async (props: Props) => {
           pagination={false}
         />
       )}
-    </div>
+    </>
   );
 };
 

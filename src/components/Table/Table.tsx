@@ -1,7 +1,7 @@
 import { PaginatedBooks } from "@/types/PaginatedBooks";
 import React from "react";
 import SingleBook from "./SingleBook/SingleBook";
-import TableLayout from "@/app/Layouts/TableLayout";
+import TableLayout from "@/components/Layouts/TableLayout";
 type Props = {
   paginatedBooks: PaginatedBooks;
   currentId: string;

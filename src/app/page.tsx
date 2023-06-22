@@ -1,10 +1,9 @@
 import Link from "next/link";
 import React from "react";
-type Props = {};
 
-const page = async (props: Props) => {
+const page = async () => {
   return (
-    <div className="relative h-screen flex items-center justify-center z-0 flex-col gap-4">
+    <main className="relative h-screen flex items-center justify-center z-0 flex-col gap-4">
       <h2 className="text-white text-lg sm:text-2xl font-bold">
         Dynamic book table
       </h2>
@@ -14,7 +13,7 @@ const page = async (props: Props) => {
         </button>
       </Link>
       <div className="absolute top-0 left-0 h-full w-full -z-10 bg-black/40"></div>
-    </div>
+    </main>
   );
 };
 
