@@ -8,7 +8,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/books/0",
+        source: "/books/author",
         destination: "/books/1",
         permanent: true,
       },

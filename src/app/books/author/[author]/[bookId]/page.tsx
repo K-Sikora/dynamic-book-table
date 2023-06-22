@@ -9,6 +9,7 @@ import { DetailedBook } from "@/types/DetailedBook";
 import { BsFillFileEarmarkPdfFill } from "react-icons/bs";
 import React from "react";
 import AuthorBooks from "@/components/AuthorBooks/AuthorBooks";
+import PageNotFound from "@/components/NotFound/NotFound";
 
 type Props = {
   params: {
@@ -47,7 +48,7 @@ const page = async (props: Props) => {
   const book: DetailedBook = await getBook(props.params.bookId);
 
   if (book.detail) {
-    throw new Error("Book not found.");
+    return <PageNotFound />;
   }
 
   return (

@@ -21,6 +21,5 @@ export default async function getPaginatedAuthorBooks(
     return { paginatedData, totalPages };
   } catch (error) {
     console.log(error);
-    throw new Error("Author not found.");
   }
 }

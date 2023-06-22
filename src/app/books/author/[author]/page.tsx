@@ -2,6 +2,7 @@ import React from "react";
 import getAuthorBooks from "@/app/services/getPaginatedAuthorBooks";
 import Table from "@/components/Table/Table";
 import { PaginatedBooks } from "@/types/PaginatedBooks";
+import PageNotFound from "@/components/NotFound/NotFound";
 type Props = {
   params: {
     author: string;
@@ -22,6 +23,9 @@ const page = async (props: Props) => {
     1,
     3000
   );
+  if (!booksByAuthor) {
+    return <PageNotFound />;
+  }
   return (
     <>
       {booksByAuthor && (

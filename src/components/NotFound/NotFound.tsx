@@ -1,28 +1,15 @@
-"use client";
-import Link from "next/link";
 import React from "react";
-import { useRouter } from "next/navigation";
-type Props = {
-  error: Error;
-};
+import Link from "next/link";
+type Props = {};
 
-const Error = (props: Props) => {
-  const handleGoBack = () => {
-    router.back();
-  };
-
-  const router = useRouter();
+const PageNotFound = (props: Props) => {
   return (
     <div className="h-screen relative text-white text-center flex items-center justify-center w-full">
       <div className="flex flex-col items-center z-10 gap-4">
-        <h3 className="text-xl md:text-3xl px-4">{props.error.message}</h3>
+        <h3 className="text-xl md:text-3xl px-4">
+          This page doesn&apos;t exist
+        </h3>
         <div className="flex gap-4 flex-wrap justify-center items-center">
-          <button
-            onClick={handleGoBack}
-            className="px-4 py-1.5 bg-orange-800 text-sm z-10 rounded-lg text-white"
-          >
-            Go back
-          </button>
           <Link
             className="px-4 py-1.5 bg-orange-800 text-sm z-10 rounded-lg text-white"
             href="/"
@@ -36,4 +23,4 @@ const Error = (props: Props) => {
   );
 };
 
-export default Error;
+export default PageNotFound;

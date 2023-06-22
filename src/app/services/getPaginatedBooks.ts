@@ -2,10 +2,6 @@ export default async function getPaginatedBooks(
   pageNumber: number,
   itemsPerPage: number
 ) {
-  if (isNaN(pageNumber)) {
-    throw new Error("A valid book page must be provided.");
-  }
-
   try {
     const res = await fetch("https://wolnelektury.pl/api/books/", {
       next: { revalidate: 3600 },

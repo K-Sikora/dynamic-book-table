@@ -2,6 +2,7 @@ import React from "react";
 import { PaginatedBooks } from "@/types/PaginatedBooks";
 import getPaginatedBooks from "@/app/services/getPaginatedBooks";
 import Table from "@/components/Table/Table";
+import PageNotFound from "@/components/NotFound/NotFound";
 type Props = {
   params: {
     pageId: string;
@@ -26,13 +27,8 @@ const page = async (props: Props) => {
     parseInt(props.params.pageId),
     25
   );
-  if (paginatedBooks) {
-    if (
-      parseInt(props.params.pageId) > paginatedBooks?.totalPages ||
-      parseInt(props.params.pageId) < 0
-    ) {
-      throw new Error("No books found on this page.");
-    }
+  if (paginatedBooks && !(paginatedBooks.paginatedData.length > 0)) {
+    return <PageNotFound />;
   }
   return (
     <>
