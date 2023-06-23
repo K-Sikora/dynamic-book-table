@@ -25,6 +25,7 @@ You can check live demo of this website on [Vercel](https://dynamic-book-table.v
 - React
 - Next.js 13.4
 - Tailwind CSS
+- TypeScript
 
 ## Installation
 
