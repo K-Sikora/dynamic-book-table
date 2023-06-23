@@ -17,7 +17,7 @@ You can check live demo of this website on [Vercel](https://dynamic-book-table.v
 - Displays information about each book, including author, title, genre, and epoch
 - Allows displaying detailed information for individual books
 - Provides the ability to view all books by a specific author in a table format
-- Utilizes Incremental Static Regeneration (ISR) for optimal performance
+- Utilizes Incremental Static Regeneration (ISR) and Static Site Generation (SSG) for optimal performance
 - Implements breadcrumbs and pagination functionalities for easy navigation through pages
 
 ## Technologies Used
@@ -49,6 +49,14 @@ Or you can create a build to generate static routes:
 npm run build
 # or
 yarn build
+```
+
+And then:
+
+```bash
+npm run start
+# or
+yarn start
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
