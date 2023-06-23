@@ -1,6 +1,9 @@
-# Dynamic Book Table
+# Dynamic Book Table with React
 
-Dynamic Book Table is a web application that generates data in a table and displays information such as author, title, genre, and epoch. The project utilizes Static Site Generation (SSG) from Next.js to generate static routes at build time instead of on-demand at request time to ensure fast and efficient performance.
+![dynamic-book-table](https://github.com/K-Sikora/dynamic-book-table/assets/105585380/7ae7424a-5e71-4d3c-be31-e413acf314c4)
+
+
+Dynamic Book Table is a web application that generates data in a table and displays information such as author, title, genre, and epoch. The project utilizes Static Site Generation (SSG) from Next.js to generate static routes at build time, taking advantage of the fact that the data displayed in the table is static and doesn't change frequently. This approach ensures fast and efficient performance by pre-rendering the pages during the build process.
 
 The book data is fetched from the [wolnelektury API](https://wolnelektury.pl/api/), which provides a rich collection of literary works.
 
