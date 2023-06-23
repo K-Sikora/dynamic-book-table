@@ -42,7 +42,7 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. (Because of generateStaticParams, overall build time might take longer and dev server might be slower)
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. (Because of SSG, overall build time might take longer and dev server might be slower)
 
 Or you can create a build to generate static routes:
 
